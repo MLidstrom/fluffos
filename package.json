@@ -1,0 +1,27 @@
+{
+  "name": "fluffos",
+  "version": "1.0.0",
+  "description": "FluffOS - LPMUD driver with markdown linting tools",
+  "private": true,
+  "scripts": {
+    "lint:md": "markdownlint-cli2 \"**/*.md\" \"#node_modules\" \"#src/thirdparty\" \"#.git\"",
+    "lint:md:fix": "markdownlint-cli2 --fix \"**/*.md\" \"#node_modules\" \"#src/thirdparty\" \"#.git\"",
+    "check:trailing": "bash scripts/check-trailing-whitespace.sh",
+    "check:line-length": "bash scripts/check-line-length.sh",
+    "lint:all": "npm run lint:md && npm run check:trailing && npm run check:line-length",
+    "fix:all": "npm run lint:md:fix && npm run fix:trailing",
+    "fix:trailing": "bash scripts/fix-trailing-whitespace.sh"
+  },
+  "devDependencies": {
+    "markdownlint-cli2": "^0.13.0",
+    "prettier": "^3.3.2"
+  },
+  "keywords": [
+    "lpmud",
+    "mud",
+    "driver",
+    "fluffos"
+  ],
+  "author": "FluffOS Team",
+  "license": "GPL-2.0"
+}
