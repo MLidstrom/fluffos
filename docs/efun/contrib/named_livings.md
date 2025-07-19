@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / named_livings.pre
+title: contrib / named_livings
 ---
 # named_livings
 

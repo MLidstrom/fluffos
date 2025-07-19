@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / compressedp.pre
+title: contrib / compressedp
 ---
 # compressedp
 

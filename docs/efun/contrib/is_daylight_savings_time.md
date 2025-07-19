@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / is_daylight_savings_time.pre
+title: contrib / is_daylight_savings_time
 ---
 # is_daylight_savings_time
 

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / event.pre
+title: contrib / event
 ---
 # event
 

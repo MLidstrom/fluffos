@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / repeat_string.pre
+title: contrib / repeat_string
 ---
 # repeat_string
 

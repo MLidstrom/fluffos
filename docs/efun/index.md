@@ -5,12 +5,10 @@ title: EFUN
 ## arrays
 * [allocate](arrays/allocate.html)
 * [arrayp](arrays/arrayp.html)
-* [element_of](arrays/element_of.html)
 * [filter_array](arrays/filter_array.html)
 * [map_array](arrays/map_array.html)
 * [member_array](arrays/member_array.html)
 * [pointerp](arrays/pointerp.html)
-* [shuffle](arrays/shuffle.html)
 * [sort_array](arrays/sort_array.html)
 * [unique_array](arrays/unique_array.html)
 ## async

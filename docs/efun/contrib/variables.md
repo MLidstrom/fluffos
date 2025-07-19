@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / variables.pre
+title: contrib / variables
 ---
 # variables
 

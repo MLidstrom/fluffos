@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / query_replaced_program.pre
+title: contrib / query_replaced_program
 ---
 # query_replaced_program
 

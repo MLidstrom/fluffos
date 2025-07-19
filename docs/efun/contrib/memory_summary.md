@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / memory_summary.pre
+title: contrib / memory_summary
 ---
 # memory_summary
 

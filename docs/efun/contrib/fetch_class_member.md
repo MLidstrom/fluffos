@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / fetch_class_member.pre
+title: contrib / fetch_class_member
 ---
 # fetch_class_member
 

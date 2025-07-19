@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / query_charmode.pre
+title: contrib / query_charmode
 ---
 # query_charmode
 

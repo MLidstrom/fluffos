@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / query_ip_port.pre
+title: contrib / query_ip_port
 ---
 # query_ip_port
 

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / remove_charmode.pre
+title: contrib / remove_charmode
 ---
 # remove_charmode
 

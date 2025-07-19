@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / fetch_variable.pre
+title: contrib / fetch_variable
 ---
 # fetch_variable
 

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / terminal_colour.pre
+title: contrib / terminal_colour
 ---
 # terminal_colour
 

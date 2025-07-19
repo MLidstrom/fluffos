@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / network_stats.pre
+title: contrib / network_stats
 ---
 # network_stats
 

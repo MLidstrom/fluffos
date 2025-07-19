@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / upper_case.pre
+title: contrib / upper_case
 ---
 # upper_case
 

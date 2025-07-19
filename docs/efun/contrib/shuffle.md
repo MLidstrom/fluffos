@@ -1,12 +1,12 @@
 ---
 layout: doc
-title: contrib / shuffle.pre
+title: contrib / shuffle
 ---
 # shuffle
 
 ### NAME
 
-    shuffle
+    shuffle() - randomly reorder the elements of an array
 
 ### SYNOPSIS
 
@@ -14,4 +14,4 @@ title: contrib / shuffle.pre
 
 ### DESCRIPTION
 
-    randomly reorders the elements of the given array (changes original!!!)
+    Randomly reorders the elements of the given array. Note that this function modifies the original array in place and returns it.

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / heart_beats.pre
+title: contrib / heart_beats
 ---
 # heart_beats
 

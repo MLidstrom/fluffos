@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / remove_shadow.pre
+title: contrib / remove_shadow
 ---
 # remove_shadow
 

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / base_name.pre
+title: contrib / base_name
 ---
 # base_name
 

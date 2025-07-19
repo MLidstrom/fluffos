@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / send_nullbyte.pre
+title: contrib / send_nullbyte
 ---
 # send_nullbyte
 

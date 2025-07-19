@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / string_difference.pre
+title: contrib / string_difference
 ---
 # string_difference
 

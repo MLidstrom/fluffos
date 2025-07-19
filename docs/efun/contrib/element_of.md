@@ -1,12 +1,12 @@
 ---
 layout: doc
-title: contrib / element_of.pre
+title: contrib / element_of
 ---
 # element_of
 
 ### NAME
 
-    element_of() - returns random elememt of given array
+    element_of() - returns random element of given array
 
 ### SYNOPSIS
 
@@ -14,4 +14,4 @@ title: contrib / element_of.pre
 
 ### DESCRIPTION
 
-    returns random elememt of given array
+    Returns a random element from the given array.

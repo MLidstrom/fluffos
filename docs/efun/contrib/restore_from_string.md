@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / restore_from_string.pre
+title: contrib / restore_from_string
 ---
 # restore_from_string
 

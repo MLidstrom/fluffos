@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / remove_interactive.pre
+title: contrib / remove_interactive
 ---
 # remove_interactive
 

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / replaceable.pre
+title: contrib / replaceable
 ---
 # replaceable
 

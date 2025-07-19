@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / store_variable.pre
+title: contrib / store_variable
 ---
 # store_variable
 

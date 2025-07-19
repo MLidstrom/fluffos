@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / get_garbage.pre
+title: contrib / get_garbage
 ---
 # get_garbage
 

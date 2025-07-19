@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / query_num.pre
+title: contrib / query_num
 ---
 # query_num
 

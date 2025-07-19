@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / store_class_member.pre
+title: contrib / store_class_member
 ---
 # store_class_member
 

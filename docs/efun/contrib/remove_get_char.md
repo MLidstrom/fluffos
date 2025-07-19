@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / remove_get_char.pre
+title: contrib / remove_get_char
 ---
 # remove_get_char
 

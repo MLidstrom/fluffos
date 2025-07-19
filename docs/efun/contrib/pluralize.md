@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / pluralize.pre
+title: contrib / pluralize
 ---
 # pluralize
 

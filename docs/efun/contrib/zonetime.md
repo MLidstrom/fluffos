@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / zonetime.pre
+title: contrib / zonetime
 ---
 # zonetime
 

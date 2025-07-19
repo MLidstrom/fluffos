@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / query_notify_fail.pre
+title: contrib / query_notify_fail
 ---
 # query_notify_fail
 

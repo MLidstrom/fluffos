@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / num_classes.pre
+title: contrib / num_classes
 ---
 # num_classes
 

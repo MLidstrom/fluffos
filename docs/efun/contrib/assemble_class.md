@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / assemble_class.pre
+title: contrib / assemble_class
 ---
 # assemble_class
 

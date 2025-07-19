@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / program_info.pre
+title: contrib / program_info
 ---
 # program_info
 

@@ -16,11 +16,11 @@ title: db / db_commit
 
     For transactional databases this will commit the last set of actions.
 
-    Returns 1 on success, 0 otherwise
+    Returns 1 on success, 0 on failure.
 
 ### NOTES
 
-    Not yet implemented!
+    Some database types (like MSQL) do not support transactions, so this function may have no effect depending on your database type.
 
 ### SEE ALSO
 

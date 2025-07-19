@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: contrib / function_owner.pre
+title: contrib / function_owner
 ---
 # function_owner
 
