@@ -434,12 +434,27 @@ static int user_parser(char *buff) {
          it moved somewhere or dested itself */
       if (s == command_giver->sent) {
         char buf[256];
+#ifdef GNULIB_AVAILABLE
+        char *allocated_buf = nullptr;
+#endif
         if (s->flags & V_FUNCTION) {
+#ifdef GNULIB_AVAILABLE
+          asprintf(&allocated_buf, "Verb '%s' bound to uncallable function pointer.\n", s->verb);
+          error(allocated_buf);
+          free(allocated_buf);
+#else
           sprintf(buf, "Verb '%s' bound to uncallable function pointer.\n", s->verb);
           error(buf);
+#endif
         } else {
+#ifdef GNULIB_AVAILABLE
+          asprintf(&allocated_buf, "Function for verb '%s' not found.\n", s->verb);
+          error(allocated_buf);
+          free(allocated_buf);
+#else
           sprintf(buf, "Function for verb '%s' not found.\n", s->verb);
           error(buf);
+#endif
         }
       }
     }

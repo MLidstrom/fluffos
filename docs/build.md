@@ -49,6 +49,7 @@ libsqlite3-dev libssl-dev libz-dev libjemalloc-dev libicu-dev
 $ git clone https://github.com/fluffos/fluffos.git
 $ cd fluffos
 $ git checkout master #(or an release tag)
+$ git submodule update --init --recursive
 ```
 - Upgrade your cmake
 ```shell
@@ -178,6 +179,7 @@ Build Steps
 ```shell
 $ git clone https://github.com/fluffos/fluffos.git
 $ cd fluffos
+$ git submodule update --init --recursive
 
 $ mkdir build && cd build
 $ cmake .. -DMARCH_NATIVE=OFF -DSTATIC=ON

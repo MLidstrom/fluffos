@@ -342,7 +342,11 @@ static const char *author_for_file(const char *file) {
   if (ret == nullptr || ret == (svalue_t *)-1 || ret->type != T_STRING) {
     return nullptr;
   }
+#ifdef GNULIB_AVAILABLE
+  strlcpy(buff, ret->u.string, sizeof(buff));
+#else
   strcpy(buff, ret->u.string);
+#endif
   return buff;
 }
 
@@ -429,7 +433,11 @@ static const char *domain_for_file(const char *file) {
   if (ret == nullptr || ret == (svalue_t *)-1 || ret->type != T_STRING) {
     return nullptr;
   }
+#ifdef GNULIB_AVAILABLE
+  strlcpy(buff, ret->u.string, sizeof(buff));
+#else
   strcpy(buff, ret->u.string);
+#endif
   return buff;
 }
 
@@ -441,6 +449,9 @@ static void save_stat_list(const char *file, mudlib_stats_t *list) {
   FILE *f;
   char fname_buf[MAXPATHLEN];
   char *fname = fname_buf;
+#ifdef GNULIB_AVAILABLE
+  char *allocated_fname = nullptr;
+#endif
 
   if (file) {
     if (strchr(file, '/')) {
@@ -449,7 +460,12 @@ static void save_stat_list(const char *file, mudlib_stats_t *list) {
       }
       f = fopen(file, "w");
     } else {
+#ifdef GNULIB_AVAILABLE
+      asprintf(&allocated_fname, "%s/%s", CONFIG_STR(__LOG_DIR__), file);
+      fname = allocated_fname;
+#else
       sprintf(fname, "%s/%s", CONFIG_STR(__LOG_DIR__), file);
+#endif
       if (fname[0] == '/') {
         fname++;
       }
@@ -461,6 +477,9 @@ static void save_stat_list(const char *file, mudlib_stats_t *list) {
   }
   if (!f) {
     debug_message("*Error: unable to open stat file %s for writing.\n", file);
+#ifdef GNULIB_AVAILABLE
+    if (allocated_fname) free(allocated_fname);
+#endif
     return;
   }
   while (list) {
@@ -468,6 +487,9 @@ static void save_stat_list(const char *file, mudlib_stats_t *list) {
     list = list->next;
   }
   fclose(f);
+#ifdef GNULIB_AVAILABLE
+  if (allocated_fname) free(allocated_fname);
+#endif
 }
 
 static void restore_stat_list(const char *file, mudlib_stats_t **list) {
@@ -475,6 +497,9 @@ static void restore_stat_list(const char *file, mudlib_stats_t **list) {
   char fname_buf[MAXPATHLEN];
   char *fname = fname_buf;
   mudlib_stats_t *entry;
+#ifdef GNULIB_AVAILABLE
+  char *allocated_fname = nullptr;
+#endif
 
   if (file) {
     if (strchr(file, '/')) {
@@ -483,7 +508,12 @@ static void restore_stat_list(const char *file, mudlib_stats_t **list) {
       }
       f = fopen(file, "r");
     } else {
+#ifdef GNULIB_AVAILABLE
+      asprintf(&allocated_fname, "%s/%s", CONFIG_STR(__LOG_DIR__), file);
+      fname = allocated_fname;
+#else
       sprintf(fname, "%s/%s", CONFIG_STR(__LOG_DIR__), file);
+#endif
       if (fname[0] == '/') {
         fname++;
       }
@@ -495,6 +525,9 @@ static void restore_stat_list(const char *file, mudlib_stats_t **list) {
   }
   if (!f) {
     debug_message("*Warning: unable to open stat file %s for reading.\n", file);
+#ifdef GNULIB_AVAILABLE
+    if (allocated_fname) free(allocated_fname);
+#endif
     return;
   }
   while (fscanf(f, "%s", fname) != EOF) {
@@ -502,6 +535,9 @@ static void restore_stat_list(const char *file, mudlib_stats_t **list) {
     fscanf(f, "%d %d\n", &entry->moves, &entry->heart_beats);
   }
   fclose(f);
+#ifdef GNULIB_AVAILABLE
+  if (allocated_fname) free(allocated_fname);
+#endif
 }
 
 void save_stat_files() {

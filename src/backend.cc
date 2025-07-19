@@ -416,6 +416,10 @@ void update_compile_av(int lines) {
 char *query_load_av() {
   static char buff[100];
 
+#ifdef GNULIB_AVAILABLE
+  asprintf(&buff, "%.2f cmds/s, %.2f comp lines/s", load_av, compile_av);
+#else
   sprintf(buff, "%.2f cmds/s, %.2f comp lines/s", load_av, compile_av);
+#endif
   return (buff);
 } /* query_load_av() */

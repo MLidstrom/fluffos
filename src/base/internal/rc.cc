@@ -16,6 +16,9 @@
 #include <sstream>
 #include <cstdlib>  // for exit
 #include <string>
+#ifdef GNULIB_AVAILABLE
+#include <stdio.h>  // for asprintf
+#endif
 
 #include "base/internal/external_port.h"
 #include "base/internal/stralloc.h"
@@ -264,10 +267,28 @@ void read_config(const char *filename) {
   {
     scan_config_line("default fail message : %[^\n]", tmp, 0);
     if (strlen(tmp) == 0) {
+#ifdef GNULIB_AVAILABLE
+      char *new_tmp;
+      if (asprintf(&new_tmp, "What?\n") != -1) {
+        strncpy(tmp, new_tmp, K_MAX_CONFIG_LINE_LENGTH - 1);
+        tmp[K_MAX_CONFIG_LINE_LENGTH - 1] = '\0';
+        free(new_tmp);
+      }
+#else
       strcpy(tmp, "What?\n");
+#endif
     }
     if (strlen(tmp) <= K_MAX_CONFIG_LINE_LENGTH - 2) {
+#ifdef GNULIB_AVAILABLE
+      char *new_tmp;
+      if (asprintf(&new_tmp, "%s\n", tmp) != -1) {
+        strncpy(tmp, new_tmp, K_MAX_CONFIG_LINE_LENGTH - 1);
+        tmp[K_MAX_CONFIG_LINE_LENGTH - 1] = '\0';
+        free(new_tmp);
+      }
+#else
       strcat(tmp, "\n");
+#endif
     }
     CONFIG_STR(__DEFAULT_FAIL_MESSAGE__) = alloc_cstring(tmp, "config file: dfm");
   }
@@ -300,7 +321,16 @@ void read_config(const char *filename) {
       external_port[i].fd = -1;
 
       char kind[K_MAX_CONFIG_LINE_LENGTH];
+#ifdef GNULIB_AVAILABLE
+      char *kind_formatted;
+      if (asprintf(&kind_formatted, "external_port_%i : %%[^\n]", i + 1) != -1) {
+        strncpy(kind, kind_formatted, K_MAX_CONFIG_LINE_LENGTH - 1);
+        kind[K_MAX_CONFIG_LINE_LENGTH - 1] = '\0';
+        free(kind_formatted);
+      }
+#else
       sprintf(kind, "external_port_%i : %%[^\n]", i + 1);
+#endif
       if (scan_config_line(kind, tmp, 0)) {
         if (sscanf(tmp, "%s %d", kind, &port) == 2) {
           external_port[i].port = port;
@@ -332,7 +362,16 @@ void read_config(const char *filename) {
     for (i = port_start; i < 5; i++) {
       if (external_port[i].kind != PORT_TYPE_UNDEFINED) {
         char kind[K_MAX_CONFIG_LINE_LENGTH];
+#ifdef GNULIB_AVAILABLE
+        char *kind_formatted;
+        if (asprintf(&kind_formatted, "external_port_%i_tls : %%[^\n]", i + 1) != -1) {
+          strncpy(kind, kind_formatted, K_MAX_CONFIG_LINE_LENGTH - 1);
+          kind[K_MAX_CONFIG_LINE_LENGTH - 1] = '\0';
+          free(kind_formatted);
+        }
+#else
         sprintf(kind, "external_port_%i_tls : %%[^\n]", i + 1);
+#endif
         if (scan_config_line(kind, tmp, 0)) {
           char cert[255 + 1]{}, key[255 + 1]{};
           if (sscanf(tmp, "cert=%255s key=%255s", cert, key) == 2) {
@@ -353,7 +392,16 @@ void read_config(const char *filename) {
     char kind[K_MAX_CONFIG_LINE_LENGTH];
 
     for (int i = 0; i < g_num_external_cmds; i++) {
+#ifdef GNULIB_AVAILABLE
+      char *kind_formatted;
+      if (asprintf(&kind_formatted, "external_cmd_%i : %%[^\n]", i + 1) != -1) {
+        strncpy(kind, kind_formatted, K_MAX_CONFIG_LINE_LENGTH - 1);
+        kind[K_MAX_CONFIG_LINE_LENGTH - 1] = '\0';
+        free(kind_formatted);
+      }
+#else
       sprintf(kind, "external_cmd_%i : %%[^\n]", i + 1);
+#endif
       if (scan_config_line(kind, tmp, 0)) {
         external_cmd[i] = alloc_cstring(tmp, "external cmd");
       } else {
@@ -383,7 +431,16 @@ void read_config(const char *filename) {
   for (const auto &flag : INT_FLAGS) {
     int value = 0;
     char buf[256];
+#ifdef GNULIB_AVAILABLE
+    char *buf_formatted;
+    if (asprintf(&buf_formatted, "%s : %%d\n", flag.key.c_str()) != -1) {
+      strncpy(buf, buf_formatted, sizeof(buf) - 1);
+      buf[sizeof(buf) - 1] = '\0';
+      free(buf_formatted);
+    }
+#else
     sprintf(buf, "%s : %%d\n", flag.key.c_str());
+#endif
 
     if (scan_config_line(buf, &value, kOptional)) {
       if (value != flag.defaultValue) {

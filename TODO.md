@@ -3,8 +3,8 @@
 - ✅ FIXED: init_simul_efun
 - ✅ FIXED: possible overflow in strcat(buf, ".c") changed to strncat with bounds checking
 - ✅ FIXED: search complete source for other occurances
-- portability problems
-  - add gnulib modules
+- ✅ FIXED: portability problems
+  - ✅ FIXED: add gnulib modules
 
 # Have Time #
 ## documentation ##

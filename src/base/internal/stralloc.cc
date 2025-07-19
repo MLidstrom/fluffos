@@ -6,6 +6,9 @@
 #include <climits>
 #include <string>
 #include <sstream>
+#ifdef GNULIB_AVAILABLE
+#include <stdio.h>  // for asprintf
+#endif
 
 #include "base/internal/debugmalloc.h"
 #include "base/internal/hash.h"
@@ -165,10 +168,18 @@ static block_t *alloc_new_shared_string(const char *string, int h, const char *w
   }
   size = sizeof(block_t) + len + 1;
   b = reinterpret_cast<block_t *>(DMALLOC(size, TAG_SHARED_STRING, why));
+#ifdef GNULIB_AVAILABLE
+  char *temp;
+  if (asprintf(&temp, "%.*s", len, string) != -1) {
+    strncpy(STRING(b), temp, len);
+    free(temp);
+  }
+  STRING(b)[len] = '\0';
+#else
   strncpy(STRING(b), string, len);
-  STRING(b)
-  [len] = '\0'; /* strncpy doesn't put on \0 if 'from' too
-                 * long */
+  STRING(b)[len] = '\0'; /* strncpy doesn't put on \0 if 'from' too
+                          * long */
+#endif
   if (cut) {
     h = StrHash(STRING(b));
   }
@@ -385,7 +396,16 @@ char *int_alloc_cstring(const char *str)
   char *ret;
 
   ret = reinterpret_cast<char *>(DMALLOC(strlen(str) + 1, TAG_STRING, tag));
+#ifdef GNULIB_AVAILABLE
+  char *temp;
+  if (asprintf(&temp, "%s", str) != -1) {
+    strncpy(ret, temp, strlen(str));
+    ret[strlen(str)] = '\0';
+    free(temp);
+  }
+#else
   strcpy(ret, str);
+#endif
   return ret;
 }
 
@@ -406,11 +426,28 @@ char *int_string_copy(const char *const str)
   if (len > max_string_length) {
     len = max_string_length;
     p = new_string(len, desc);
+#ifdef GNULIB_AVAILABLE
+    char *temp;
+    if (asprintf(&temp, "%.*s", len, str) != -1) {
+      strncpy(p, temp, len);
+      free(temp);
+    }
+    p[len] = '\0';
+#else
     (void)strncpy(p, str, len);
     p[len] = '\0';
+#endif
   } else {
     p = new_string(len, desc);
+#ifdef GNULIB_AVAILABLE
+    char *temp;
+    if (asprintf(&temp, "%.*s", len, str) != -1) {
+      strncpy(p, temp, len + 1);
+      free(temp);
+    }
+#else
     (void)strncpy(p, str, len + 1);
+#endif
   }
   return p;
 }

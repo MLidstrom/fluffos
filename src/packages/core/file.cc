@@ -193,7 +193,11 @@ array_t *get_dir(const char *path, int flags) {
       return nullptr;
     }
     if (p != temppath) {
+#ifdef GNULIB_AVAILABLE
+      strlcpy(regexppath, p + 1, sizeof(regexppath));
+#else
       strcpy(regexppath, p + 1);
+#endif
       *p = '\0';
     } else {
       strcpy(regexppath, p);
@@ -915,7 +919,12 @@ int copy_file(const char *from, const char *to) {
     } else {
       cp = from;
     }
+#ifdef GNULIB_AVAILABLE
+    asprintf(&newto, "%s/%s", to, cp);
+    free(newto);
+#else
     sprintf(newto, "%s/%s", to, cp);
+#endif
     return copy_file(from, newto);
   }
 

@@ -265,11 +265,17 @@ add_subdirectory(thirdparty/libwebsockets EXCLUDE_FROM_ALL)
 include_directories("thirdparty/libwebsockets/include" SYSTEM)
 include_directories("${CMAKE_CURRENT_BINARY_DIR}/thirdparty/libwebsockets")
 
+# Gnulib configuration
+add_subdirectory(thirdparty/gnulib/import/gnulib)
+# Define GNULIB_AVAILABLE for conditional compilation
+add_compile_definitions(GNULIB_AVAILABLE=1)
+
 # Build phase
 
 set(GENERATED_HEADERS
         "${CMAKE_CURRENT_BINARY_DIR}/config.h"
         "${CMAKE_CURRENT_BINARY_DIR}/packages/packages.autogen.h"
+        "${CMAKE_CURRENT_BINARY_DIR}/thirdparty/gnulib/import/gnulib/config.h"
         )
 
 # Tools
@@ -452,8 +458,11 @@ endif ()
 
 target_link_libraries(libdriver PUBLIC ghc_filesystem)
 target_link_libraries(libdriver PUBLIC fmt::fmt)
+target_link_libraries(libdriver PUBLIC gnulib_config)
+target_link_libraries(libdriver PUBLIC gnulib)
 
 list(APPEND FLUFFOS_LIBRARIES autogen)
+list(APPEND FLUFFOS_LIBRARIES gnulib)
 
 add_subdirectory(packages) # provides FLUFFOS_PACKAGES
 message(STATUS "ALL PACKAGES: ${FLUFFOS_PACKAGES}")
