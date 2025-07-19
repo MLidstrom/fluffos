@@ -8,10 +8,11 @@
 
 Welcome
 =======
-FluffOS is an LPMUD driver, based on the last release of MudOS (v22.2b14), includes 10+ years of bug
+
+FluffOS is an LPMUD driver, based on the last release of MudOS (v22.2b14), includes over 10 years of bug
  fixes and performance enhancement, with active support.
 
-FluffOS supports all LPC based mud with very little code changes. if you are currently still using MudOS somehow
+FluffOS supports all LPC based mud with very little code changes. If you are currently still using MudOS, somehow
  it is definitely time to upgrade!
 
 It is recommended to use the latest release on Github or the master branch, previous versions (v2017 in particular) are
@@ -19,6 +20,7 @@ not supported.
 
 Build
 -----
+
 FluffOS's main platform is ubuntu 22.04 LTS, but also works on latest OSX and Windows (MSYS2/mingw64), WSL with
 ubuntu 22.04 works fine too.
 
@@ -26,35 +28,43 @@ Build system: cmake (3.20)
 
 Features
 --------
+
 LPC Language since FluffOS v2017
-  - LPC string operations are UTF-8 EGS aware, range operator supports emoji and other unicode characters.
-  - various new EFUNS for transparent input/output transcoding.
+
+- LPC string operations are UTF-8 EGS aware, range operator supports emoji and other unicode characters.
+- various new EFUNS for transparent input/output transcoding.
 
 LPC Language since MudOS
-  - Please read docs/archive/ChangeLog.* files for details
+
+- Please read docs/archive/ChangeLog.* files for details
 
 Driver Runtime
-  - Jemalloc support
-  - SHA512 crypt by default.
-  - LPC Tracing
-  - Mysql, Postgresql, SQLLite integration
-  - Async IO operations
-  - External program integration
+
+- Jemalloc support
+- SHA512 crypt by default.
+- LPC Tracing
+- Mysql, Postgresql, SQLLite integration
+- Async IO operations
+- External program integration
 
 Networking
-  - TLS support
-  - Websocket protocol support (with a minimal example for a webclient)
+
+- TLS support
+- Websocket protocol support (with a minimal example for a webclient)
 
 LPC Standard Library
-  - see files under testsuite/std.
+
+- see files under testsuite/std.
 
 Misc
-  - Testsuite for all EFUNS
-  - Detailed memory accounting (through mud_status(1) EFUN)
-  - Memory leak detection
+
+- Testsuite for all EFUNS
+- Detailed memory accounting (through mud_status(1) EFUN)
+- Memory leak detection
 
 V2017
 -----
+
 v2017 is the legacy version, with an autoconf based build system, it supports compiling on centOS/ubuntu
 and under windows using CYGWIN. This release is no longer supported, it is kept only for historical interest now.
 
@@ -62,18 +72,33 @@ All previous MudOS and FluffOS releases are also kept in the code base as tags f
 
 Support
 -------
-- Website / Documentation: https://www.fluffos.info
-- Discord Support: #fluffos channel on LPC https://discord.gg/2a6qqG6Cdj
-- Forum: https://forum.fluffos.info
+
+- Website / Documentation: <https://www.fluffos.info>
+- Discord Support: #fluffos channel on LPC <https://discord.gg/2a6qqG6Cdj>
+- Forum: <https://forum.fluffos.info>
 - QQ support Group: 451819151 [![451819151](https://pub.idqqimg.com/wpa/images/group.png)](https://shang.qq.com/wpa/qunwpa?idkey=3fd552adb8ace1a8e3ae3a712e5d314c7caf49af8b87449473c595b7e1f1ddf9)
 
 How to Build
 ------------
+
 see <https://www.fluffos.info/build.html>
 For building with Docker on Ubuntu see [docs/docker-ubuntu.md](docs/docker-ubuntu.md)
 
+Documentation Standards
+-----------------------
+FluffOS uses automated markdown linting to maintain consistent documentation quality.
+
+**For contributors:**
+- Install dependencies: `npm install`
+- Check markdown: `npm run lint:md`
+- Auto-fix issues: `npm run lint:md:fix`
+- Check all rules: `npm run lint:all`
+
+See [MARKDOWN_STYLE_GUIDE.md](MARKDOWN_STYLE_GUIDE.md) for detailed guidelines.
+
 Bundled Third-party Dependencies
 ----------------------
+
 - libwebsockets: <https://libwebsockets.org/>
 - libevent: <https://libwebsockets.org/>
 - backward-cpp <https://github.com/bombela/backward-cpp>
@@ -89,6 +114,7 @@ Non-bundled platform dependencies includes: libevent, ICU4C, OpenSSL, Zlib etc.
 
 Projects Using FluffOS
 ----------------------
+
 [Add Your Own](https://github.com/fluffos/fluffos/edit/master/README.md)
 
 - Practically all Chinese
@@ -98,6 +124,7 @@ Projects Using FluffOS
 
 Donations
 ---------
+
 I would like to personal thank all the sponsors and contributors for showing their support.
 All donations are 100% used towards purchasing tools, equipments and hosting cost for FluffOS development and website
  and forum hosting.

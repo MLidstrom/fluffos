@@ -2,7 +2,7 @@
 
 ## Overview
 
-FluffOS is an LPMUD driver based on the last release of MudOS (v22.2b14), enhanced with 10+ years of bug fixes and performance improvements. This guide provides comprehensive instructions for using the mudlib that comes with FluffOS.
+FluffOS is an LPMUD driver based on the last release of MudOS (v22.2b14). It has been enhanced with over 10 years of bug fixes and performance improvements. This guide provides comprehensive instructions for using the mudlib that comes with FluffOS.
 
 ## What is FluffOS?
 
@@ -276,4 +276,4 @@ FluffOS is released under the MIT License. See the `Copyright` file for full lic
 
 ---
 
-*This guide covers the essential aspects of using FluffOS mudlib. For the most current information, always refer to the official documentation at https://www.fluffos.info*
+*This guide covers the essential aspects of using FluffOS mudlib. For the most current information, always refer to the official documentation at https://www.fluffos.info.*
